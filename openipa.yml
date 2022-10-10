@@ -1,0 +1,81 @@
+openapi: '3.9.0'
+info:
+  tittle: END POINTS
+  version: '2.0'
+servers:
+  - url: http://localhost:3030
+path:
+  /createQuestion:
+    post:
+     tags:
+      - Question
+     description: Question Create
+     operationId: QuestionCreate
+     responses:
+       '201':
+         description: Question Create
+         content:
+           application/json:
+             schema:
+               $ref: '#/components/schemas/ApiResponse'
+       '400':
+         description: QuestionCreateFailure
+         content:
+           application/json:
+             schema:
+               $ref: '#/components/schemas/ApiResponse'
+  requestBody:
+    description: QuestionCreate
+    content:
+      application/json:
+        schema:
+          $ref: '#/components/schemas/QuestionData'
+   
+
+components:
+  schemas:
+    ApiResponse:
+      type: object
+      description:  ResponseInStatusCode
+      properties:
+        code: 
+          type: integer
+          format: int32
+        type:
+          type: string
+        message:
+          type: string    
+          
+    TaskData:
+      type: object
+      properties:
+        id:
+          type: string
+        topic:
+          type: string
+    QuestionData:
+      type: object
+      properties:
+        id:
+          type: string
+        topicid:
+          type: string
+        question:
+          type: string
+        optionA:
+          type: string
+        optionB:
+          type: string
+        optionC:
+          type: string
+        optionD:
+          type: string
+        QuestionId:
+          type: string
+    AnswerData:
+      type: object
+      properties:
+        QuestionId:
+          type: string
+        answer:
+          type: string               

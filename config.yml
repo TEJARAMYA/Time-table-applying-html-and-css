@@ -1,0 +1,7 @@
+inputPath: openapi.yml
+
+outputPath: direct
+
+generator: "@openapi-generator-plus/typescript-express-passport-server-generator"
+
+
